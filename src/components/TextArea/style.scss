@@ -1,0 +1,46 @@
+@use "../../styles/variables/colors";
+@use "../../styles/variables/fonts";
+
+.textarea-block{
+  position: relative;
+
+  label{
+    font-size: 1.4rem;
+  }
+
+  textarea{
+    min-height: 8rem;
+    width: 100%;
+    padding: 1.2rem 1.6rem;
+    height: 16rem;
+    margin-top: 0.8rem;
+    background-color: colors.$input-background;
+    border-radius: 0.8rem;
+    border: 1px solid colors.$line-in-white;
+    outline: none;
+    font-size: 1.6rem;
+    font-family: fonts.$archivo;
+    resize: vertical;
+  }
+
+  &+ .input-block{
+    margin-top: 1.4rem;
+  }
+
+  &:focus-within::after{
+    content: '';
+    width: calc(100% - 3.2rem);
+    height: 2px;
+    background-color: colors.$primary-light;
+    position: absolute;
+    left: 1.6rem;
+    right: 1.6rem;
+    bottom: 7px;
+  }
+}
+
+@media screen and (min-width: 700px){
+  .input-block + .input-block{
+    margin-top: 0;
+  }
+}

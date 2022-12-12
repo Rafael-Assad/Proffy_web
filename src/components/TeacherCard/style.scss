@@ -1,0 +1,123 @@
+@use "../../styles/variables/colors";
+@use "../../styles/variables/fonts";
+
+.teacher-item{
+  background-color: colors.$box-base;
+  border: 1px solid colors.$line-in-white;
+  border-radius: 0.8rem;
+  margin-top: 2.4rem;
+  overflow: hidden;
+
+  header{
+    padding: 3.2rem 2rem;
+    display: flex;
+    align-items: center;
+
+    img{
+      width: 8rem;
+      height: 8rem;
+      border-radius: 50%;
+    }
+
+    div{
+      margin-left: 2.4rem;
+
+      strong{
+        font-size: 2.4rem;
+        font-weight: 700;
+        font-family: fonts.$archivo;
+        display: block;
+        color: colors.$text-title;
+      }
+
+      span{
+        font-size: 1.6rem;
+        display: block;
+        margin-top: 0.4rem;
+      }
+    }
+  }
+
+  .description{
+    padding: 0 2rem;
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+  }
+
+  footer{
+    margin-top: 3.2rem;
+    padding: 3.2rem;
+    background-color: colors.$box-footer;
+    border-top: 1px solid colors.$line-in-white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p{
+      strong{
+        color: colors.$primary;
+        font-size: 1.6rem;
+        display: block; 
+      }
+    }
+
+    button{
+      width: 20rem;
+      height: 5.6rem;
+      background-color: colors.$secundary;
+      color: colors.$button-text;
+      border: 0;
+      border-radius: 0.8rem;
+      cursor: pointer;
+      font-size: 1.4rem;
+      font-weight: 700;
+      font-family: fonts.$archivo;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      transition: 0.2s;
+
+      &:hover{
+        background-color: colors.$secundary-dark;
+      }
+
+      svg{
+        font-size: 2.5rem;
+      }
+    }
+
+  }
+}
+
+@media screen and (min-width: 700px){
+  .teacher-item{
+    header, footer{
+      padding: 3.2rem;
+    }
+
+    .description{
+      padding: 0 3.2rem;
+    }
+
+    footer{
+      p{
+        strong{
+          display: initial;
+          margin-left: 1.6rem;
+        }
+      }
+
+      button{
+        width: 24.5rem;
+        font-size: 1.6rem;
+        justify-content: center;
+
+        svg{
+          margin-right: 1.6rem;
+        }
+      }
+    }
+  }
+}

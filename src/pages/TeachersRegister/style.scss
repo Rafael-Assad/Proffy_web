@@ -1,0 +1,153 @@
+@use "../../styles/variables/colors";
+@use "../../styles/variables/fonts";
+
+#teacher-register{
+  height: 100vh;
+  width: 100vw;
+
+  .page-header{
+    .header-content{
+      margin-bottom: 6.4rem;
+    }
+  }
+
+  main{
+    width: 100%;
+    max-width: 74rem;
+    margin: -3.2rem auto 3.2rem;
+    padding-bottom: 6.4rem;
+    background-color: colors.$box-base;
+    border-radius: 0.8rem;
+    overflow: hidden;
+
+    fieldset{
+      padding: 0 2.4rem;
+      border: 0;
+
+      & + fieldset{
+        margin-top: 6.4rem;
+      }
+
+      legend{
+        width: 100%;
+        padding-bottom: 1.6rem;
+        margin-bottom: 2.4rem;
+        font: 700 2.4rem fonts.$archivo;
+        color: colors.$text-title;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid colors.$line-in-white;
+
+        button{
+          background: none;
+          color: colors.$primary;
+          border: none;
+          outline: none;
+          font: 700 1.6rem fonts.$archivo;
+          cursor: pointer;
+          transition: color 0.2s;
+
+          &:hover{
+            color: colors.$primary-dark;
+          }
+        }
+      }
+
+      .input-block + .textarea-block, .select-block + .input-block{
+        margin-top: 2.4rem;
+      }
+    }
+
+    label{
+      color: colors.$text-complement;
+    }
+
+    footer{
+      margin-top: 6.4rem;
+      padding: 4rem 2.4rem;
+      background-color: colors.$box-footer;
+      border-top: 1px solid colors.$line-in-white;
+
+      p{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        line-height: 2.4rem;
+        color: colors.$text-complement;
+
+        svg{
+          margin-right: 2rem;
+          font-size: 3.2rem;
+          color: colors.$warning;
+        }
+      }
+
+      button{
+        width: 100%;
+        height: 5.6rem;
+        margin-top: 3.2rem;
+        background-color: colors.$secundary;
+        color: colors.$button-text;
+        border: 0;
+        border-radius: 0.8rem;
+        cursor: pointer;
+        font: 700 1.6rem fonts.$archivo;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: background-color 0.2s;
+
+        &:hover{
+          background-color: colors.$secundary-dark;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 700px) {
+  #teacher-register{
+    max-width: 100vw;
+  
+    .page-header{
+      .header-content{
+        margin-bottom:0;
+      }
+    }
+  
+    main{
+      fieldset{
+        padding: 0 6.4rem;
+      }
+  
+      footer{
+        padding: 4rem 6.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+  
+        p{
+          justify-content: space-between;
+        }
+  
+        button{
+          width: 20rem;
+          margin-top: 0
+        }
+      }
+
+      .schedule-item{
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        column-gap: 1.6rem;
+
+        .select-block + .input-block{
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
