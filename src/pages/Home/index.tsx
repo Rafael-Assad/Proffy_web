@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 import logoImg from '../../assets/images/logo.svg'
@@ -7,9 +8,24 @@ import { BsBook } from 'react-icons/bs'
 import { MdLiveTv } from 'react-icons/md'
 import { ImHeart } from 'react-icons/im'
 
+import api from "../../services/api"
+
 import './style.scss'
 
 const Home = () => {
+  const [totalConnections, setTotalConnections] = useState(0)
+
+  useEffect(() => {
+    api.get('connections')
+      .then(response =>{
+        const { total } = response.data
+
+        setTotalConnections(total)
+      })
+ 
+  }, [])
+  
+
   return (
     <div id="home-page">
       <div id="home-content" className="container">
@@ -41,7 +57,7 @@ const Home = () => {
         </div>
 
         <span className="total-connections">
-          Total de 200 conexões já realizadas
+          Total de {totalConnections} conexões já realizadas
 
           <ImHeart/>
         </span>
