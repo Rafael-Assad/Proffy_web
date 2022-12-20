@@ -1,22 +1,25 @@
 import { ImWhatsapp } from 'react-icons/im'
+import api from '../../services/api';
 
 import "./style.scss"
 
-interface TeacherCardProps {
+export interface ClassDetails {
+  id: number;
   name: string;
   subject: string;
-  picSrc: string;
-  description:string;
-  price: number;
+  avatar: string;
+  bio:string;
+  cost: string;
   whatsapp: string;
-  otherContatcs?: any;
 }
 
-const TeacherCard = ({name, subject, picSrc, description, price, whatsapp, otherContatcs}: TeacherCardProps) =>{
+const TeacherCard = ({id, name, subject, avatar, bio, cost, whatsapp}: ClassDetails) =>{
+  const newConnection = async () => await api.post('connections', {user_id: id})
+
   return (
     <article className="teacher-item">
       <header>
-        <img src={picSrc} alt={name} />
+        <img src={avatar} alt={name} />
         <div>
           <strong>{name}</strong>
 
@@ -25,22 +28,24 @@ const TeacherCard = ({name, subject, picSrc, description, price, whatsapp, other
       </header>
 
       <p className='description'>
-        {description}
-        <br /><br />
-        {description}
+        {bio}
       </p>
 
       <footer>
         <p>
           Preço/Hora 
-          <strong>R${price.toFixed(2)}</strong>
+          <strong>R${parseInt(cost).toFixed(2)}</strong>
         </p>
 
-        <button>
+        <a href={`https://wa.me/${whatsapp}`}
+          target="_blank"
+          rel="noreferrer noopener"
+          onClick={newConnection}
+        >
           <ImWhatsapp/>
 
           Entrar em contato
-        </button>
+        </a>
       </footer>
     </article>
   )

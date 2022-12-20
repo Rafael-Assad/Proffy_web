@@ -62,7 +62,7 @@
       }
     }
 
-    button{
+    a{
       width: 20rem;
       height: 5.6rem;
       background-color: colors.$secundary;
@@ -78,6 +78,7 @@
       align-items: center;
       justify-content: space-evenly;
       transition: 0.2s;
+      text-decoration: none;
 
       &:hover{
         background-color: colors.$secundary-dark;
@@ -109,7 +110,7 @@
         }
       }
 
-      button{
+      a{
         width: 24.5rem;
         font-size: 1.6rem;
         justify-content: center;
